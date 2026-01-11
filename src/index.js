@@ -2,6 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import { authroute } from "./routes/authroute.js"
 import { msgroute } from "./routes/messageroute.js";
+import { userroute } from "./routes/userroutes.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import { app, server } from "./lib/socket.js";
@@ -28,6 +29,7 @@ app.use(cors({
 
 app.use("/api/auth", authroute)
 app.use("/api/messages", msgroute)
+app.use("/api/users", userroute)
 
 
 server.listen(port, () => {
